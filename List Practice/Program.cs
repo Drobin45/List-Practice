@@ -129,14 +129,23 @@ namespace List_Practice
             //When the user quits show them all of the movies in the list
 
             string movieSearch;
-            Console.WriteLine("Welcome to Generic Movie Ordering Platform! Please enter the movie you would like to order!");
+            Console.WriteLine("Welcome to Generic Movie Ordering Platform! \nPlease enter the movie you would like to order!");
             List<string> movies = new List<string> { "The Matrix", "Captain Awesome", "Transformers", "Up", "Moana" };
 
             do
             {         
                 movieSearch = Console.ReadLine();
 
-                if (movies.Contains(movieSearch))
+                if (movieSearch == "Quit")
+                {                   
+                    foreach (string mov in movies)
+                    {
+                        Console.WriteLine(mov);
+                    }
+                    Environment.Exit(0);
+                }
+
+                else if (movies.Contains(movieSearch))
                 {
                     Console.WriteLine("Your movie is on it's way. Enjoy!");
                 }                
@@ -148,14 +157,9 @@ namespace List_Practice
                 }             
 
             }
-            while (movieSearch != "Quit");
+            while (movieSearch != "Quit");            
 
-            foreach (string mov in movies)
-            {
-                Console.WriteLine(mov);
-            }
-
-            Console.WriteLine("Enjoy your moviea and please come again!");
+            Console.WriteLine("Enjoy your movie and please come again!");
 
 
 
